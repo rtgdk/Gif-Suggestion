@@ -1,0 +1,63 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load staticfiles %}
+ {% block block %}
+<form class="form-signin" id ="form1" role="form" method="post" action=".">
+{% csrf_token %}
+
+<hr>
+<h2 class="intro-text text-center"><strong>Search</strong>
+</h2>
+<hr>
+Search: <input class="form-control" placeholder="type!" id="id_search" maxlength="32" name="search" type="text" required autofocus=""/>
+<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit" >Search</button>
+</form>
+<hr>
+<tbody class="divid" id = "divid">
+{% include 'app/table_body.html' %}
+</tbody>
+<div id ="gif1"></div>
+
+<script>
+		var delay = (function(){
+		var timer = 0;
+		return function(callback, ms){
+		  clearTimeout (timer);
+		  timer = setTimeout(callback, ms);
+		};
+	})();
+    $("#id_search").keyup(function (e) {
+    $('#gif1').empty();
+    delay(function(){
+		console.log(e.target.value);
+		console.log(document.URL);
+		$('#gif1').empty();
+      $.ajax({
+        url: '/gif/',
+        data: {
+          'search': e.target.value
+        },
+        dataType: 'json',
+        success: function (response) {
+        	console.log("here");
+        	//$('#divid').on("load","app/table_body.html");
+        	//$('#divid').load(document.URL + " #divid");
+        	$('#gif1').append('<hr><iframe src=' + response.gif[0] + '><p>Your browser does not support iframes.</p></iframe>');
+        	$('#gif1').append('<hr><iframe src=' + response.gif[1] + '><p>Your browser does not support iframes.</p></iframe>');
+        	$('#gif1').append('<hr><iframe src=' + response.gif[2] + '><p>Your browser does not support iframes.</p></iframe>');
+        	$('#gif1').append('<hr><iframe src=' + response.gif[3] + '><p>Your browser does not support iframes.</p></iframe>');
+        	$('#gif1').append('<hr><iframe src=' + response.gif[4] + '><p>Your browser does not support iframes.</p></iframe>');
+        	//$('#gif1').append(response.gif[1]);
+        	//console.log(response.gif[0]);
+        }
+      });
+   //$('#divid').html('').load({% url 'index' %} + " #divid");
+   console.log("here4");
+   
+   console.log("here5");
+   },500);
+    });
+</script>
+
+{% endblock %}
+

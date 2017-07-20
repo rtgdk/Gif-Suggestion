@@ -1,0 +1,26 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load staticfiles %}
+ {% block block %}
+<h3><strong> {{ invalid }} </strong> </h3>
+<h3> Login </h3>
+<form  name="myForm" class = "form-horizontal text-center"  method = "post" action = "/gif/login/">
+				{% csrf_token %}
+				<div class = "form-group">
+					<div class="col-sm-12">
+					UserName:
+				        <input type="text" class="form-control" id="username" placeholder="username" name = "username">
+				    </div>
+				</div>
+				<div class = "form-group">
+					<div class="col-sm-12">
+				       Password: <input type="password" class="form-control" id="password" placeholder="password" name = "password">
+				    </div>
+				</div>
+				<div class="form-group">
+			        <button type="submit"  class="btn btn-success">Submit</button>
+			    </div>
+					    
+</form>
+{% endblock %}
+

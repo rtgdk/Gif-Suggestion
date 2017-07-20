@@ -1,0 +1,38 @@
+{% load static %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Gif Suggestion</title>
+	
+</head>
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        								{% if 'user' in request.session %}
+                        <a href="/gif/" >Search</a>
+                        <a href="/gif/article/">Article</a>
+                        <a href="/gif/addarticle/">Add Article</a>
+                        <a href="/gif/logout/">Logout</a>
+                        {{ request.session.user }}
+                        {% else %}
+                        <a href="/gif/login/">Login</a>
+                        <a href="/gif/register/">Register</a>
+                        {% endif %}
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <hr>
+        <div class="container">
+        {% block block %}{% endblock %}
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+<script src="{% static 'app/js/jquery.min.js' %}"></script>
+<script src="{% static 'app/js/jquery.iframetracker.js' %}"></script>
+</body>
+

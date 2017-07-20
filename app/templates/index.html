@@ -1,0 +1,52 @@
+{% load static %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Gif Suggestion</title>
+	
+</head>
+<body>
+<form class="form-signin" role="form" method="post" action=".">
+{% csrf_token %}
+
+<hr>
+<h2 class="intro-text text-center"><strong>Search2</strong>
+</h2>
+<hr>
+Search: <input class="form-control" placeholder="type!" id="id_search" maxlength="32" name="search" type="text" required autofocus=""/>
+<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit" >Search</button>
+</form>
+
+<iframe src=result.media_url>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<h2>hello</h2>
+</body>
+
+
+<!--
+<script>
+$(document).ready(function () {
+    $("#id_search").keyup(function(e) {
+      console.log(e.target.value,); // sanity check
+		  $('#divid').load(" #divid");
+    });
+});
+</script>
+$.ajax({
+        url: '/gif/',
+        data: {
+          'search': form.prop("search"),
+        },
+        dataType: 'json',
+        success: function (response) {
+          if (response.success) {
+            $('#divid').load(" #divid");
+          }
+        }
+        
+      });
+-->
+

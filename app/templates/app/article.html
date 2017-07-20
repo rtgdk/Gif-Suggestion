@@ -1,0 +1,458 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load staticfiles %}
+ {% block block %}
+ <style>
+ .stileone {
+    background: none
+}
+
+.green {
+    background: green
+}</style>
+{% if invalid %}
+<h3>{{ invalid }}</h3>
+{% else %}
+<form class="form" id ="myForm" role="form" method="post" action=".">
+		{% csrf_token %}
+ <h3> Title : {{ article }} </h3>
+ <h3> Link : {{ article.link}} </h3>
+ <!--
+ <h4> Keyword1 : {{article.kw1}} </h4>
+ <div id = "kw1">
+ <iframe id="1" src= {{ article.kw1.gif1 }} onload="myFunction()">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ <iframe id="2" src= {{ article.kw1.gif2 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="3" src= {{ article.kw1.gif3 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="4" src= {{ article.kw1.gif4 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="5" src= {{ article.kw1.gif5 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="6" src= {{ article.kw1.gif6 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="7" src= {{ article.kw1.gif7 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="8" src= {{ article.kw1.gif8 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="9" src= {{ article.kw1.gif9 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="10" src= {{ article.kw1.gif10 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+</div>-->
+<h4>Keypoint : </h4>
+<h4> Keyword : {{kw}} </h4>
+	<div id = "kw" >
+	<div class="gif1" style="float:left; margin-right:12px;" id="iframe_facebook_like">
+ <iframe id="1" src= {{ kw.gif1 }}  class = "stileone" width="250">
+  <p class="stileone">Your browser does not support iframes.</p>
+</iframe>
+	<input type="hidden" name="gifc1" value="0">
+	</div>
+	<div class="gif2" style="float:left; margin-right:12px;" id="iframe_facebook_like">
+ <iframe id="2" src= {{ kw.gif2 }} class = "stileone"  width="250">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ <input type="hidden" name="gifc2" value="0">
+	</div>
+	<div class="gif3" style="float:left; margin-right:12px;" id="iframe_facebook_like">
+<iframe id="3" src= {{ kw.gif3 }}  class = "stileone"width="250">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+	<input type="hidden" name="gifc3" value="0">
+	</div>
+<div class="gif4" style="float:left; margin-right:12px;" id="iframe_facebook_like">
+<iframe id="4" src= {{ kw.gif4 }}  class = "stileone" width="250">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<input type="hidden" name="gifc4" value="0" >
+</div>
+<div class="gif5" style="float:left; margin-right:12px;" id="iframe_facebook_like">
+<iframe id="5" src= {{ kw.gif5 }}  class = "stileone" width="250">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<input type="hidden" name="gifc5" value="0">
+</div>
+<div class="gif6" style="float:left; margin-right:12px;" id="iframe_facebook_like">
+<iframe id="6" src= {{ kw.gif6 }}  class = "stileone" width="250">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<input type="hidden" name="gifc6" value="0">
+</div>
+<div class="gif7" style="float:left; margin-right:12px;" id="iframe_facebook_like">
+<iframe id="7" src= {{ kw.gif7 }}  class = "stileone" width="250">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ <input type="hidden" name="gifc7" value="0">
+</div>
+<div class="gif8" style="float:left; margin-right:12px;" id="iframe_facebook_like">
+<iframe id="8" src= {{ kw.gif8 }}  class = "stileone" width="250">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<input type="hidden" name="gifc8" value="0">
+</div>
+<div class="gif9" style="float:left; margin-right:12px;" id="iframe_facebook_like">
+<iframe id="9" src= {{ kw.gif9 }}  class = "stileone" width="250">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<input type="hidden" name="gifc9" value="0">
+</div>
+<div class="gif10" style="float:left; margin-right:12px;" id="iframe_facebook_like">
+<iframe id="10" src= {{ kw.gif10 }}  class = "stileone" width="250">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<input type="hidden" name="gifc10" value="0">
+</div>
+</div>
+<!--
+<h4> Keyword3 : {{article.kw3}} </h4>
+	<div id = "kw3">
+ <iframe id="1" src= {{ article.kw3.gif1 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ <iframe id="2" src= {{ article.kw3.gif2 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="3" src= {{ article.kw3.gif3 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="4" src= {{ article.kw3.gif4 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="5" src= {{ article.kw3.gif5 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="6" src= {{ article.kw3.gif6 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="7" src= {{ article.kw3.gif7 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="8" src= {{ article.kw3.gif8 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="9" src= {{ article.kw3.gif9 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="10" src= {{ article.kw3.gif10 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+</div>
+<h4> Keyword3 : {{article.kw4}} </h4>
+	<div id = "kw4">
+ <iframe id="1" src= {{ article.kw4.gif1 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ <iframe id="2" src= {{ article.kw4.gif2 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="3" src= {{ article.kw4.gif3 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="4" src= {{ article.kw4.gif4 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="5" src= {{ article.kw4.gif5 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="6" src= {{ article.kw4.gif6 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="7" src= {{ article.kw4.gif7 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="8" src= {{ article.kw4.gif8 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="9" src= {{ article.kw4.gif9 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="10" src= {{ article.kw4.gif10 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+</div>
+<h4> Keyword5 : {{article.kw5}} </h4>
+	<div id = "kw5">
+ <iframe id="1" src= {{ article.kw5.gif1 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+ <iframe id="2" src= {{ article.kw5.gif2 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="3" src= {{ article.kw5.gif3 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="4" src= {{ article.kw5.gif4 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="5" src= {{ article.kw5.gif5 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="6" src= {{ article.kw5.gif6 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="7" src= {{ article.kw5.gif7 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="8" src= {{ article.kw5.gif8 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="9" src= {{ article.kw5.gif9 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<iframe id="10" src= {{ article.kw5.gif10 }}>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+</div>-->
+<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit" >Next</button>
+</form>
+{% endif %}
+<script src="{% static 'app/js/jquery.min.js' %}"></script>
+<script src="{% static 'app/js/jquery.iframetracker.js' %}"></script>
+<script>
+jQuery(document).ready(function($){
+	$('.gif1 iframe').iframeTracker({
+		blurCallback: function(){
+			console.log("here");
+			console.log($("#1").attr("class"));
+			$("#1").toggleClass("green");
+			//console.log(document.forms["myForm"]["gifc1"].value)
+			if (document.forms["myForm"]["gifc1"].value == 1){
+				document.forms["myForm"]["gifc1"].value = 0
+			}
+			else {
+				document.forms["myForm"]["gifc1"].value = 1
+			}
+				console.log(document.forms["myForm"]["gifc1"].value)
+			//$('#1').css("background","green");
+			// Do something when the iframe is clicked (like firing an XHR request)
+		}
+	});
+});
+</script>
+<script>
+jQuery(document).ready(function($){
+	$('.gif2 iframe').iframeTracker({
+		blurCallback: function(){
+			console.log("here");
+			console.log($("#1").attr("class"));
+			$("#2").toggleClass("green");
+			if (document.forms["myForm"]["gifc2"].value == 1){
+				document.forms["myForm"]["gifc2"].value = 0
+			}
+			else {
+				document.forms["myForm"]["gifc2"].value = 1
+			}
+				console.log(document.forms["myForm"]["gifc2"].value)
+			//$('#1').css("background","green");
+			// Do something when the iframe is clicked (like firing an XHR request)
+		}
+	});
+});
+</script>
+<script>
+jQuery(document).ready(function($){
+	$('.gif3 iframe').iframeTracker({
+		blurCallback: function(){
+			console.log("here");
+			console.log($("#1").attr("class"));
+			$("#3").toggleClass("green");
+			if (document.forms["myForm"]["gifc3"].value == 1){
+				document.forms["myForm"]["gifc3"].value = 0
+			}
+			else {
+				document.forms["myForm"]["gifc3"].value = 1
+			}
+				console.log(document.forms["myForm"]["gifc3"].value)
+			//$('#1').css("background","green");
+			// Do something when the iframe is clicked (like firing an XHR request)
+		}
+	});
+});
+</script>
+<script>
+jQuery(document).ready(function($){
+	$('.gif4 iframe').iframeTracker({
+		blurCallback: function(){
+			console.log("here");
+			console.log($("#1").attr("class"));
+			$("#4").toggleClass("green");
+			if (document.forms["myForm"]["gifc4"].value == 1){
+				document.forms["myForm"]["gifc4"].value = 0
+			}
+			else {
+				document.forms["myForm"]["gifc4"].value = 1
+			}
+				console.log(document.forms["myForm"]["gifc4"].value)
+			//$('#1').css("background","green");
+			// Do something when the iframe is clicked (like firing an XHR request)
+		}
+	});
+});
+</script>
+<script>
+jQuery(document).ready(function($){
+	$('.gif5 iframe').iframeTracker({
+		blurCallback: function(){
+			console.log("here");
+			console.log($("#1").attr("class"));
+			$("#5").toggleClass("green");
+			if (document.forms["myForm"]["gifc5"].value == 1){
+				document.forms["myForm"]["gifc5"].value = 0
+			}
+			else {
+				document.forms["myForm"]["gifc5"].value = 1
+			}
+				console.log(document.forms["myForm"]["gifc5"].value)
+			//$('#1').css("background","green");
+			// Do something when the iframe is clicked (like firing an XHR request)
+		}
+	});
+});
+</script>
+<script>
+jQuery(document).ready(function($){
+	$('.gif6 iframe').iframeTracker({
+		blurCallback: function(){
+			console.log("here");
+			console.log($("#1").attr("class"));
+			$("#6").toggleClass("green");
+			if (document.forms["myForm"]["gifc6"].value == 1){
+				document.forms["myForm"]["gifc6"].value = 0
+			}
+			else {
+				document.forms["myForm"]["gifc6"].value = 1
+			}
+				console.log(document.forms["myForm"]["gifc6"].value)
+			//$('#1').css("background","green");
+			// Do something when the iframe is clicked (like firing an XHR request)
+		}
+	});
+});
+</script>
+<script>
+jQuery(document).ready(function($){
+	$('.gif7 iframe').iframeTracker({
+		blurCallback: function(){
+			console.log("here");
+			console.log($("#1").attr("class"));
+			$("#7").toggleClass("green");
+			if (document.forms["myForm"]["gifc7"].value == 1){
+				document.forms["myForm"]["gifc7"].value = 0
+			}
+			else {
+				document.forms["myForm"]["gifc7"].value = 1
+			}
+				console.log(document.forms["myForm"]["gifc7"].value)
+			//$('#1').css("background","green");
+			// Do something when the iframe is clicked (like firing an XHR request)
+		}
+	});
+});
+</script>
+<script>
+jQuery(document).ready(function($){
+	$('.gif8 iframe').iframeTracker({
+		blurCallback: function(){
+			console.log("here");
+			console.log($("#1").attr("class"));
+			$("#8").toggleClass("green");
+			if (document.forms["myForm"]["gifc8"].value == 1){
+				document.forms["myForm"]["gifc8"].value = 0
+			}
+			else {
+				document.forms["myForm"]["gifc8"].value = 1
+			}
+				console.log(document.forms["myForm"]["gifc8"].value)
+			//$('#1').css("background","green");
+			// Do something when the iframe is clicked (like firing an XHR request)
+		}
+	});
+});
+</script>
+<script>
+jQuery(document).ready(function($){
+	$('.gif9 iframe').iframeTracker({
+		blurCallback: function(){
+			console.log("here");
+			console.log($("#1").attr("class"));
+			$("#9").toggleClass("green");
+			if (document.forms["myForm"]["gifc9"].value == 1){
+				document.forms["myForm"]["gifc9"].value = 0
+			}
+			else {
+				document.forms["myForm"]["gifc9"].value = 1
+			}
+				console.log(document.forms["myForm"]["gifc9"].value)
+			//$('#1').css("background","green");
+			// Do something when the iframe is clicked (like firing an XHR request)
+		}
+	});
+});
+</script>
+<script>
+jQuery(document).ready(function($){
+	$('.gif10 iframe').iframeTracker({
+		blurCallback: function(){
+			console.log("here");
+			console.log($("#1").attr("class"));
+			$("#10").toggleClass("green");
+			if (document.forms["myForm"]["gifc10"].value == 1){
+				document.forms["myForm"]["gifc10"].value = 0
+			}
+			else {
+				document.forms["myForm"]["gifc10"].value = 1
+			}
+				console.log(document.forms["myForm"]["gifc10"].value)
+			//$('#1').css("background","green");
+			// Do something when the iframe is clicked (like firing an XHR request)
+		}
+	});
+});
+</script>
+<!--
+<script>
+$(document).ready(function () {
+    $("iframe").each(function () {
+        //Using closures to capture each one
+        console.log("here");
+        var iframe = $(this);
+        iframe.on("load", function () { //Make sure it is fully loaded
+            iframe.click(function (event) {
+                iframe.trigger("click");
+            });
+        });
+
+        iframe.click(function () {
+            //Handle what you need it to do
+            console.log("here");
+        });
+    });
+});
+</script>-->
+<!--<script>
+var iframe = $('#1').contents();
+
+iframe.find('p').click(function(event){
+   console.log('work fine');
+});
+</script>-->
+<!--
+<script>
+$(".stileone").on("click", function() {
+    $(this).css("background", "green");
+})
+</script>-->
+
+ {% endblock %}
